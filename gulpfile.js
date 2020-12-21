@@ -6,10 +6,10 @@ const {task,src,dest}=require('gulp');
 
 // https://gulpjs.com/docs/en/api/task
 task('default',function(cb){
-  del(['../E-motor-Integration-Merchant-web/src/eui/lib/**/*'],{force:true}).then(function(){
+  del(['../immotor-ui-web/examples/node_modules/element-ui/lib/**/*'],{force:true}).then(function(){
     src(['./lib/**/*'],{base:'./'})
-      .pipe(dest('../E-motor-Integration-Merchant-web/src/eui/'));
+      .pipe(dest('../immotor-ui-web/examples/node_modules/element-ui/'));
   });
-  console.log('default: lib okay. E-motor-Integration-Merchant-web');
+  console.log('default: lib okay. immotor-ui-web');
   cb();
 });
