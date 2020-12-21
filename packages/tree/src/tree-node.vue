@@ -55,6 +55,7 @@
         v-if="!renderAfterExpand || childNodeRendered"
         v-show="expanded"
         role="group"
+        :class="checkIsWrapFinal(node.childNodes)"
         :aria-expanded="expanded"
       >
         <el-tree-node
@@ -155,6 +156,21 @@
     },
 
     methods: {
+      checkIsWrapFinal(childNodes){
+        var i=0;
+        if(childNodes.length){
+          childNodes.forEach(function(childNode){
+            // console.log(childNode.childNodes.length);
+            if(childNode.childNodes.length){
+              i++;
+            }
+          });
+          
+        }else{
+          i='i';
+        }
+        return (i===0?'__wrap_final':'');
+      },
       getNodeKey(node) {
         return getNodeKey(this.tree.nodeKey, node.data);
       },
