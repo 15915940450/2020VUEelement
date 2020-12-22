@@ -68,6 +68,7 @@
       data: {
         type: Array
       },
+      isimt: Boolean,
       emptyText: {
         type: String,
         default() {
@@ -324,16 +325,16 @@
     created() {
       this.isTree = true;
 
-      console.log(this.isIMT);
-      // if (this.isIMT) {
-      // this.nodeKey = 'id';
-      // this.showCheckbox = true;
-      // this.highlightCurrent = true;
-      // this.defaultExpandAll = true;
-      // this.expandOnClickNode = false;
-      // this.indent = 60;
-      // this.iconClass = 'dont_show';
-      // }
+      console.log(this.isimt);
+      if (this.isimt) {
+        this.nodeKey = 'id';
+        this.showCheckbox = true;
+        this.highlightCurrent = true;
+        this.defaultExpandAll = true;
+        this.expandOnClickNode = false;
+        this.indent = 60;
+        this.iconClass = 'dont_show';
+      }
       var OPT = {
         childKey: this.props.children
       };
@@ -360,7 +361,7 @@
         });
       };
 
-      if (this.isIMT) {
+      if (this.isimt) {
         checkSon(this.data);
         checkSon(this.data, true);
       }
