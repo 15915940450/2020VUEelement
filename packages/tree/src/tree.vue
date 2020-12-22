@@ -2,6 +2,7 @@
   <div
     class="el-tree"
     :class="{
+      is_imt__el_tree:isimt,
       'el-tree--highlight-current': highlightCurrent,
       'is-dragging': !!dragState.draggingNode,
       'is-drop-not-allow': !dragState.allowDrop,
@@ -79,12 +80,18 @@
         type: Boolean,
         default: true
       },
-      nodeKey: String,
+      nodeKey: {
+        type: String,
+        default: 'id'
+      },
       checkStrictly: Boolean,
-      defaultExpandAll: Boolean,
-      expandOnClickNode: {
+      defaultExpandAll: {
         type: Boolean,
         default: true
+      },
+      expandOnClickNode: {
+        type: Boolean,
+        default: false
       },
       checkOnClickNode: Boolean,
       checkDescendants: {
@@ -101,7 +108,7 @@
       renderContent: Function,
       showCheckbox: {
         type: Boolean,
-        default: false
+        default: true
       },
       draggable: {
         type: Boolean,
@@ -122,13 +129,17 @@
         type: Boolean,
         default: false
       },
-      highlightCurrent: Boolean,
+      highlightCurrent: {
+        type: Boolean,
+        default: true
+      },
       load: Function,
       filterNodeMethod: Function,
       accordion: Boolean,
       indent: {
         type: Number,
-        default: 18
+        default: 60
+        // default: 18
       },
       iconClass: String
     },
@@ -325,16 +336,16 @@
     created() {
       this.isTree = true;
 
-      console.log(this.isimt);
-      if (this.isimt) {
-        this.nodeKey = 'id';
-        this.showCheckbox = true;
-        this.highlightCurrent = true;
-        this.defaultExpandAll = true;
-        this.expandOnClickNode = false;
-        this.indent = 60;
-        this.iconClass = 'dont_show';
-      }
+      // console.log(this.isimt);
+      // if (this.isimt) {
+      //   this.nodeKey = 'id';
+      //   this.showCheckbox = true;
+      //   this.highlightCurrent = true;
+      //   this.defaultExpandAll = true;
+      //   this.expandOnClickNode = false;
+      //   this.indent = 60;
+      //   this.iconClass = 'dont_show';
+      // }
       var OPT = {
         childKey: this.props.children
       };
