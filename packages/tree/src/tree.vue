@@ -324,6 +324,47 @@
     created() {
       this.isTree = true;
 
+      console.log(this.isIMT);
+      // if (this.isIMT) {
+      // this.nodeKey = 'id';
+      // this.showCheckbox = true;
+      // this.highlightCurrent = true;
+      // this.defaultExpandAll = true;
+      // this.expandOnClickNode = false;
+      // this.indent = 60;
+      // this.iconClass = 'dont_show';
+      // }
+      var OPT = {
+        childKey: this.props.children
+      };
+      // 深度遍历,由上至下
+      var checkSon = function(arrEdit, twice) {
+        arrEdit.forEach(function(v) {
+          // 有子组织
+          if (v[OPT.childKey] && v[OPT.childKey].length) {
+            if (twice) {
+              var isWrapFinalTwice = v[OPT.childKey].every(function(sun) {
+                return (sun.isWrapFinal);
+              });
+              v[OPT.childKey].forEach(function(sun) {
+                sun.isWrapFinalTwice = isWrapFinalTwice;
+              });
+            } else {
+              v.isWrapFinal = !v[OPT.childKey].some(function(sun) {
+                return (sun[OPT.childKey] && sun[OPT.childKey].length);
+              });
+            }
+
+            checkSon(v[OPT.childKey], twice);
+          }
+        });
+      };
+
+      if (this.isIMT) {
+        checkSon(this.data);
+        checkSon(this.data, true);
+      }
+
       this.store = new TreeStore({
         key: this.nodeKey,
         data: this.data,

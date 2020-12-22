@@ -55,7 +55,7 @@
         v-if="!renderAfterExpand || childNodeRendered"
         v-show="expanded"
         role="group"
-        :class="checkIsWrapFinal(node.childNodes)"
+        :class="checkIsWrapFinal(node)"
         :aria-expanded="expanded"
       >
         <el-tree-node
@@ -156,11 +156,13 @@
     },
 
     methods: {
-      checkIsWrapFinal(childNodes){
+      checkIsWrapFinal(node){
+        //console.log(node.data.isWrapFinalTwice,node.data.isWrapFinal);
+
+        var childNodes=node.childNodes;
         var tree=this.tree;
         var i=0;
         var level='__level_';
-        // console.log(childNodes);
         if(childNodes.length){
           childNodes.forEach(function(childNode){
             // console.log(childNode.level);
@@ -173,7 +175,17 @@
         }else{
           i='i';
         }
-        return (i===0?'__wrap_final '+level:level);
+        node.isWrapFinal=node.data.isWrapFinal;
+        node.isWrapFinalTwice=node.data.isWrapFinalTwice;
+
+        var classObj={
+          __wrap_final:node.isWrapFinal,
+          [level]:true,
+          __wrap_final_twice:node.isWrapFinalTwice
+        };
+
+        //return (node.isWrapFinal?'__wrap_final '+level:level);
+        return (classObj);
       },
       getNodeKey(node) {
         return getNodeKey(this.tree.nodeKey, node.data);
