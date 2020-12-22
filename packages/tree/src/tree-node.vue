@@ -157,10 +157,14 @@
 
     methods: {
       checkIsWrapFinal(childNodes){
+        var tree=this.tree;
         var i=0;
+        var level='__level_';
+        // console.log(childNodes);
         if(childNodes.length){
           childNodes.forEach(function(childNode){
-            // console.log(childNode.childNodes.length);
+            // console.log(childNode.level);
+            level='__indent_'+tree.indent+ '__level_'+childNode.level;
             if(childNode.childNodes.length){
               i++;
             }
@@ -169,7 +173,7 @@
         }else{
           i='i';
         }
-        return (i===0?'__wrap_final':'');
+        return (i===0?'__wrap_final '+level:level);
       },
       getNodeKey(node) {
         return getNodeKey(this.tree.nodeKey, node.data);
