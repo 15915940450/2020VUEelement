@@ -34,11 +34,10 @@ Vue.component(Button.name, Button)
   ```
 2. gulp
 3. 参考
-```
-[调整 webpack 配置最简单的方式](https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F)
-[如何修改ElementUI源码](https://www.jianshu.com/p/e745787118d0)
-[Vue CLI 4.x 配置 alias](https://www.jianshu.com/p/0824f625dfbb)
-```
++ [调整 webpack 配置最简单的方式](https://cli.vuejs.org/zh/guide/webpack.html#%E7%AE%80%E5%8D%95%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F)
++ [如何修改ElementUI源码](https://www.jianshu.com/p/e745787118d0)
++ [Vue CLI 4.x 配置 alias](https://www.jianshu.com/p/0824f625dfbb)
++ [Node中require第三方包规则](https://blog.csdn.net/weixin_34381666/article/details/91397399?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control)
 
 
 
