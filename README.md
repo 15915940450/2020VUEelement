@@ -1,5 +1,9 @@
 # 2020VUEelement
 
++ npm start
++ npm run emotor
++ \packages\theme-chalk\src\common\var.scss
+
 ## Quick Start
 ``` javascript
 import Vue from 'vue'
@@ -35,3 +39,16 @@ Vue.component(Button.name, Button)
 [如何修改ElementUI源码](https://www.jianshu.com/p/e745787118d0)
 [Vue CLI 4.x 配置 alias](https://www.jianshu.com/p/0824f625dfbb)
 ```
+
+
+
+
+### 开发日志
+
+### 25/12/2020 周五
+本周
++ 学习调试工具
++ 编写公共组件权限树
++ 练习three.js
+下周
++ 看一看three
