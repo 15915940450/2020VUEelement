@@ -5,6 +5,7 @@
     @contextmenu="($event) => this.handleContextMenu($event)"
     v-show="node.visible"
     :class="{
+      ['node_level__'+node.level]:true,
       'is-expanded': expanded,
       'is-current': node.isCurrent,
       'is-hidden': !node.visible,
@@ -157,6 +158,7 @@
 
     methods: {
       checkIsWrapFinal(node){
+        // console.log(node);
         //console.log(node.data.isWrapFinalTwice,node.data.isWrapFinal);
 
         var childNodes=node.childNodes;

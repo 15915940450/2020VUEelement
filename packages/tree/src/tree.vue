@@ -190,7 +190,6 @@
     },
 
     methods: {
-      
       filter(value) {
         if (!this.filterNodeMethod) throw new Error('[Tree] filterNodeMethod is required when filter');
         this.store.filter(value);
